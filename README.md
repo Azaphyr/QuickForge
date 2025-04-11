@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+# RailSync
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RailSync is a modern railway management solution built with React, TypeScript, and Vite. This project follows a feature-based architecture pattern to ensure scalability, maintainability, and clear separation of concerns.
 
-Currently, two official plugins are available:
+## Architecture Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project is structured using a feature-based architecture with three main directories:
 
-## Expanding the ESLint configuration
+### 1. Core (`/src/Core`)
+Contains the fundamental building blocks of the application:
+- `App/`: Main application component and layout
+- `routes.tsx`: Centralized routing configuration
+- Future additions: Global state management, error boundaries, etc.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 2. Features (`/src/Features`)
+Each feature is self-contained with its own components, logic, and styles:
+- `Home/`: Landing page and introduction
+- `Auth/`: Authentication flows (Google & Microsoft OAuth)
+- `Dashboard/`: Main application interface
+- Each feature follows the same pattern:
+  - Components
+  - Hooks (if needed)
+  - Types (if needed)
+  - Styles (if needed)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 3. Shared (`/src/Shared`)
+Contains reusable resources used across the application:
+- `styles/`: Global styles, CSS reset, and utility classes
+- Future additions: Common components, utilities, constants, etc.
+
+## Technology Stack
+
+- **React**: UI library
+- **TypeScript**: Type safety and better developer experience
+- **Vite**: Build tool and development server
+- **React Router**: Client-side routing
+- **Tailwind CSS**: Utility-first CSS framework
+
+## Project Structure
+
+```
+src/
+├── Core/
+│   ├── App/
+│   │   ├── App.tsx
+│   │   └── App.css
+│   └── routes.tsx
+├── Features/
+│   ├── Home/
+│   │   └── Home.tsx
+│   ├── Auth/
+│   │   └── Auth.tsx
+│   └── Dashboard/
+│       └── Dashboard.tsx
+├── Shared/
+│   └── styles/
+│       └── index.css
+├── main.tsx
+└── vite-env.d.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Build for production:
+   ```bash
+   npm run build
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Architecture Benefits
+
+1. **Scalability**: Each feature can be developed and tested independently
+2. **Maintainability**: Clear separation of concerns makes the codebase easier to maintain
+3. **Reusability**: Shared components and utilities reduce code duplication
+4. **Team Collaboration**: Different teams can work on different features simultaneously
+5. **Code Organization**: Clear structure makes it easy to locate and understand code
+
+## Future Considerations
+
+- Add state management (e.g., Redux, Zustand)
+- Implement API layer for backend communication
+- Add testing setup (Jest, React Testing Library)
+- Set up CI/CD pipeline
+- Add documentation generation
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Submit a pull request
+
+## License
+
+[MIT License](LICENSE)
