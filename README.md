@@ -30,11 +30,47 @@ Contains reusable resources used across the application:
 
 ## Technology Stack
 
-- **React**: UI library
+- **React 18**: UI library
 - **TypeScript**: Type safety and better developer experience
 - **Vite**: Build tool and development server
 - **React Router**: Client-side routing
 - **Tailwind CSS**: Utility-first CSS framework
+- **Jest & React Testing Library**: Testing framework
+
+## Development Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Azaphyr/RailSync.git
+   cd RailSync
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Available Scripts
+
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run lint`: Check code with ESLint
+- `npm run format`: Format code with Prettier
+- `npm test`: Run tests
+- `npm run test:watch`: Run tests in watch mode
+
+## Code Quality
+
+We maintain code quality through:
+- TypeScript for type safety
+- ESLint for code linting
+- Prettier for code formatting
+- Jest and React Testing Library for testing
 
 ## Project Structure
 
@@ -59,22 +95,6 @@ src/
 └── vite-env.d.ts
 ```
 
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-4. Build for production:
-   ```bash
-   npm run build
-   ```
-
 ## Architecture Benefits
 
 1. **Scalability**: Each feature can be developed and tested independently
@@ -87,7 +107,6 @@ src/
 
 - Add state management (e.g., Redux, Zustand)
 - Implement API layer for backend communication
-- Add testing setup (Jest, React Testing Library)
 - Set up CI/CD pipeline
 - Add documentation generation
 
@@ -95,7 +114,8 @@ src/
 
 1. Create a feature branch
 2. Make your changes
-3. Submit a pull request
+3. Run tests and ensure code quality
+4. Submit a pull request
 
 ## License
 
