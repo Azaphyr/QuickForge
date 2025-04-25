@@ -39,27 +39,72 @@
 - `npm test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
 
-## Project Structure
+## Project Architecture
 
+### 🏗️ Core (✅ Implemented)
+The core module contains fundamental building blocks:
 ```
-src/
-├── Assets/            # Static assets
-├── Core/              # Core application modules
-├── Features/          # Feature modules
-├── Shared/           # Shared resources
-└── main.tsx         # Entry point
+Core/
+├── API/            # API configuration and services (✅)
+├── App/            # Main application setup (✅)
+├── Authentication/ # Core authentication logic (✅)
+├── Profile/        # User profile management (✅)
+└── routes.tsx      # Application routing configuration (✅)
 ```
 
-### Feature Module Structure
+### 🚀 Features
+Feature modules implement specific functionality:
 
-Each feature should follow this structure:
+#### 🔒 Auth (✅ Implemented)
 ```
-FeatureName/
-├── Components/     # React components
-├── Hooks/         # Custom hooks
-├── Services/      # API services
-├── Types/         # TypeScript types
-└── index.ts       # Public API
+Auth/
+├── Login.tsx
+├── Callback.tsx
+├── Logout.tsx
+├── Auth.tsx
+└── __tests__/
+```
+
+#### 🏠 Home (✅ Implemented)
+```
+Home/
+├── Components/
+├── Services/
+├── Hooks/
+└── __tests__/
+```
+
+#### 📊 Dashboard (🚧 In Progress)
+```
+Dashboard/
+├── Dashboard.tsx
+├── Components/     # ✅ Implemented
+├── Services/       # ✅ Created
+├── Hooks/         # ✅ Created
+└── __tests__/     # 🚧 In Progress
+```
+
+#### 📈 Analytics (🚧 In Progress)
+```
+Analytics/
+├── Components/     # ✅ Created
+├── Services/       # ✅ Created
+├── Hooks/         # ✅ Created
+└── __tests__/     # 🚧 In Progress
+```
+
+### 🔄 Shared (✅ Implemented)
+Reusable resources across features:
+```
+Shared/
+├── Components/    # ✅ Implemented
+├── Contexts/      # ✅ Implemented
+├── Hooks/         # ✅ Implemented
+├── Services/      # ✅ Implemented
+├── Types/         # ✅ Implemented
+├── Utils/         # ✅ Implemented
+├── Styles/        # ✅ Implemented
+└── Config/        # ✅ Implemented
 ```
 
 ## Code Style & Conventions

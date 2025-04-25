@@ -1,102 +1,103 @@
-# Implement Feature-Based Architecture
+# Pull Request Template
 
-## Description
-This PR introduces a feature-based architecture pattern to the QuickForge project, organizing the codebase into three main directories: Core, Features, and Shared. This structure provides better scalability, maintainability, and separation of concerns.
+## 🎯 Description
+<!-- Provide a brief description of the changes in this PR -->
 
-## Changes
-- Implemented three-layer architecture:
-  - Core: Fundamental building blocks (App, routing)
-  - Features: Self-contained feature modules (Home, Auth, Dashboard)
-  - Shared: Reusable resources (styles)
-- Set up React Router for client-side navigation
-- Added Tailwind CSS for styling
-- Created comprehensive README with architecture documentation
+## 📋 Type of Change
+<!-- Check the relevant boxes -->
+- [ ] 🚀 New feature
+- [ ] 🐛 Bug fix
+- [ ] 📝 Documentation update
+- [ ] 🎨 Style update
+- [ ] 🔧 Refactoring
+- [ ] 🧪 Test update
+- [ ] 🏗️ Build/CI update
+- [ ] 🔒 Security fix
+- [ ] 🚧 Work in Progress
 
-## Technical Details
-- Added new directory structure
-- Implemented basic routing with React Router
-- Set up Tailwind CSS configuration
-- Created initial feature components
-- Added global styles and CSS reset
+## 🏗️ Implementation Status
+<!-- Check the relevant boxes based on the project architecture -->
 
-## Testing
-- [x] Navigation works correctly between routes
-- [x] Styles are applied properly
-- [x] Components render without errors
+### Core
+- [ ] API configuration and services
+- [ ] Main application setup
+- [ ] Authentication logic
+- [ ] User profile management
+- [ ] Routing configuration
 
-## Screenshots
-(Add screenshots of the application if available)
+### Features
+- [ ] Auth
+- [ ] Home
+- [ ] Dashboard
+- [ ] Analytics
 
-## Checklist
-- [x] Code follows the project's coding standards
-- [x] README has been updated with architecture documentation
-- [x] All new files have appropriate TypeScript types
-- [x] No console errors or warnings
-- [x] All routes are working as expected
+### Shared
+- [ ] Components
+- [ ] Contexts
+- [ ] Hooks
+- [ ] Services
+- [ ] Types
+- [ ] Utils
+- [ ] Styles
+- [ ] Config
 
-## Related Issues
-Closes #(issue number if applicable)
+## ✅ Checklist
+<!-- Check the relevant boxes -->
+- [ ] Code follows project conventions
+- [ ] Tests added/updated
+- [ ] Documentation updated
+- [ ] Linting passed
+- [ ] TypeScript types added/updated
+- [ ] No console.log statements
+- [ ] No commented-out code
+- [ ] No debugger statements
+- [ ] Error handling implemented
+- [ ] Performance considerations addressed
 
-## Notes
-This architecture sets the foundation for future features and makes it easier to:
-- Add new features independently
-- Maintain and scale the codebase
-- Collaborate between team members
-- Reuse components and utilities 
+## 🔍 Testing
+<!-- Describe how you tested your changes -->
+- [ ] Unit tests added/updated
+- [ ] Component tests added/updated
+- [ ] Integration tests added/updated
+- [ ] Manual testing performed
 
-const debouncedSearch = useDebounce(searchTerm, 500); 
+## 📸 Screenshots
+<!-- Add screenshots if applicable -->
 
-const { data, loading, error } = useAxios<User[]>('/api/users');
+## 📝 Documentation
+<!-- List any documentation updates needed -->
+- [ ] README.md
+- [ ] DEVELOPMENT.md
+- [ ] API documentation
+- [ ] Component documentation
 
-const { data, loading, error } = useAxios<User[]>('/api/users', {
-  params: { page: 1, limit: 10 }
-});
+## 🔗 Related Issues
+<!-- Link to related issues -->
+- Closes #[issue_number]
+- Fixes #[issue_number]
+- Related to #[issue_number]
 
-const [theme, setTheme] = useLocalStorage('theme', 'light'); 
+## ⚠️ Breaking Changes
+<!-- List any breaking changes -->
+- [ ] Yes
+- [ ] No
 
-// Default date format (Dutch/Belgium)
-formatDate(new Date()); // "22/04/2024"
+If yes, please describe:
 
-// French date format
-formatDate(new Date(), {
-  locale: 'fr-BE'
-}); // "22/04/2024"
+## 🔄 Migration Steps
+<!-- If there are breaking changes, describe how to migrate -->
 
-// With time
-formatDate(new Date(), {
-  hour: '2-digit',
-  minute: '2-digit'
-}); // "22/04/2024 15:30"
+## 📊 Performance Impact
+<!-- Describe any performance impact -->
 
-// Default EUR formatting (Dutch/Belgium)
-formatCurrency(1234.56); // "€ 1.234,56"
+## 🔒 Security Considerations
+<!-- Describe any security considerations -->
 
-// Using helper functions
-formatEUR(1234.56); // "€ 1.234,56" (Dutch)
-formatEURfr(1234.56); // "1 234,56 €" (French)
-formatUSD(1234.56); // "$1,234.56" (US)
+## 🚀 Deployment Notes
+<!-- Any special deployment considerations -->
 
-// With custom options
-formatCurrency(1234.56, {
-  minimumFractionDigits: 0
-}); // "€ 1.235"
+## 📝 Additional Notes
+<!-- Add any additional notes -->
 
-// Using German locale for EUR
-formatCurrency(1234.56, {
-  locale: 'de-DE'
-}); // "1.234,56 €"
-
-// Basic usage
-truncateText('Hello World', { maxLength: 5 }); // "Hello..."
-
-// Preserve words
-truncateText('Hello World', { 
-  maxLength: 8,
-  preserveWords: true 
-}); // "Hello..."
-
-// Custom ellipsis
-truncateText('Hello World', { 
-  maxLength: 5,
-  ellipsis: ' (more)' 
-}); // "Hello (more)" 
+## 🙏 Acknowledgments
+<!-- Acknowledge any contributors or resources that helped -->
