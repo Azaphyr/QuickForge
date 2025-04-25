@@ -2,12 +2,17 @@
 
 QuickForge is a modern, feature-rich React starter template built with TypeScript and Vite. It provides a solid foundation for building scalable frontend applications with best practices, security, and performance in mind.
 
+## 📚 Documentation
+
+- [Development Guidelines](docs/DEVELOPMENT.md) - Comprehensive guide for development practices
+- [Pull Request Template](PR_TEMPLATE.md) - Template for creating pull requests
+
 ## 🚀 Quick Start
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/quickforge.git
-cd quickforge
+git clone https://github.com/Azaphyr/QuickForge.git
+cd QuickForge
 ```
 
 2. Install dependencies:
@@ -34,12 +39,6 @@ npm run dev
   - Protected routes
   - Token management
   - Secure session handling
-
-- 🎨 **UI/UX**
-  - Responsive design
-  - Modern UI components
-  - Dark mode support
-  - Accessibility features
 
 - 📦 **Project Structure**
   - Feature-based architecture
@@ -89,29 +88,19 @@ src/
 ├── main.tsx          # Application entry point
 └── vite-env.d.ts     # Vite environment types
 
-# Root directory
-├── public/           # Public static assets
-├── docs/             # Documentation
-├── dist/             # Production build output
-├── node_modules/     # Dependencies
-├── .git/             # Version control
-├── .env              # Environment variables
+# Configuration Files
+├── .env.example      # Environment variables template
 ├── .gitignore        # Git ignore rules
 ├── .prettierrc       # Prettier configuration
 ├── jest.config.js    # Jest configuration
 ├── jest.setup.js     # Jest setup
-├── package.json      # Project dependencies
-├── package-lock.json # Lock file
 ├── postcss.config.js # PostCSS configuration
 ├── tailwind.config.js # Tailwind configuration
 ├── tsconfig.json     # TypeScript configuration
 ├── tsconfig.node.json # Node TypeScript configuration
 ├── tsconfig.app.json # App TypeScript configuration
 ├── vite.config.ts    # Vite configuration
-├── vite.config.js    # Vite configuration (JS)
-├── vite.config.d.ts  # Vite type definitions
-├── index.html        # HTML entry point
-└── PR_TEMPLATE.md    # Pull request template
+└── eslint.config.js  # ESLint configuration
 ```
 
 ## 🛠️ Development
@@ -196,7 +185,7 @@ npm run test:watch
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+5. Open a Pull Request using the provided template
 
 ## 📄 License
 
