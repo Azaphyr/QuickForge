@@ -1,27 +1,22 @@
-import { createBrowserRouter } from 'react-router-dom'
-import App from './App/App.tsx'
-import Home from '../Features/Home/Home.tsx'
-import Auth from '../Features/Auth/Auth.tsx'
-import Dashboard from '../Features/Dashboard/Dashboard.tsx'
+import { createBrowserRouter } from 'react-router-dom';
+import { ProtectedRoute } from '../Shared/Components/ProtectedRoute';
+import Home from '../Features/Home/Home';
+import Dashboard from '../Features/Dashboard/Dashboard';
+import { Login } from '../Features/Auth/Login';
+import { Logout } from '../Features/Auth/Logout';
+import { Callback } from '../Features/Auth/Callback';
 
 export const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/login', element: <Login /> },
+  { path: '/logout', element: <Logout /> },
+  { path: '/auth/callback', element: <Callback /> },
   {
-    path: '/',
-    element: <App />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: 'auth',
-        element: <Auth />,
-      },
-      {
-        path: 'dashboard',
-        element: <Dashboard />,
-      },
-    ],
+    path: '/dashboard',
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
-  // Add more routes here as needed
-]) 
+]); 

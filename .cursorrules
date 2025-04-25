@@ -1,0 +1,215 @@
+# QuickForge Project Conventions
+
+## File Naming Conventions
+
+### Utility Files
+- Use PascalCase without "Utils" suffix
+- Located in `src/Shared/utils/`
+- Examples:
+  - `Validation.ts`
+  - `Number.ts`
+  - `Format.ts`
+  - `File.ts`
+
+### Class/Interface Files
+- Use PascalCase to match the class/interface name
+- Located in appropriate feature or shared directories
+- Examples:
+  - `UserService.ts` (exports `UserService` class)
+  - `AuthState.ts` (exports `AuthState` interface)
+  - `ApiClient.ts` (exports `ApiClient` class)
+
+### Test Files
+- Use PascalCase with `.test.ts` suffix
+- Located in `__tests__` directories next to source files
+- Examples:
+  - `Validation.test.ts`
+  - `Number.test.ts`
+  - `Format.test.ts`
+  - `File.test.ts`
+
+### Component Files
+- Use PascalCase
+- Located in feature directories
+- Examples:
+  - `AuthProvider.tsx`
+  - `Login.tsx`
+  - `Dashboard.tsx`
+
+### Hook Files
+- Use camelCase with `use` prefix
+- Located in feature directories under `Hooks/`
+- Examples:
+  - `useAuth.ts`
+  - `useDashboard.ts`
+
+## Code Naming Conventions
+
+### Variables and Functions
+- Use camelCase for variable and function names
+- Examples:
+  ```typescript
+  const userName = 'John';
+  const getUserData = () => {};
+  const formatCurrency = (amount: number) => {};
+  ```
+
+### Classes and Interfaces
+- Use PascalCase for class and interface names
+- Use camelCase for interface members
+- Examples:
+  ```typescript
+  interface UserData {
+    firstName: string;
+    lastName: string;
+    emailAddress: string;
+  }
+
+  class UserService {
+    private userData: UserData;
+    
+    constructor(userData: UserData) {
+      this.userData = userData;
+    }
+    
+    public getUserFullName(): string {
+      return `${this.userData.firstName} ${this.userData.lastName}`;
+    }
+  }
+  ```
+
+## Directory Structure
+
+```
+src/
+├── Features/           # Feature modules
+│   ├── Auth/          # Authentication feature
+│   │   ├── Components/  # Auth components
+│   │   ├── Services/    # Auth services
+│   │   └── __tests__/   # Auth tests
+│   ├── Home/          # Home page feature
+│   ├── Dashboard/     # Dashboard feature
+│   └── Analytics/     # Analytics feature
+├── Shared/            # Shared resources
+│   ├── contexts/      # React contexts
+│   ├── types/         # TypeScript types
+│   └── utils/         # Utility functions
+└── App.tsx           # Root component
+```
+
+## Import/Export Rules
+
+### Utility Files
+- Use named exports
+- Group related exports in index files
+- Example:
+  ```typescript
+  export const function1 = () => {};
+  export const function2 = () => {};
+  ```
+
+### Component Files
+- Use default exports
+- Example:
+  ```typescript
+  const Component = () => {};
+  export default Component;
+  ```
+
+### Index Files
+- Use wildcard exports for utilities
+- Use named exports for components
+- Example:
+  ```typescript
+  export * from './Validation';
+  export * from './Number';
+  export { default as Component } from './Component';
+  ```
+
+## Code Style
+
+### TypeScript
+- Use strict mode
+- Never use `any` type - use proper type definitions or `unknown` with type guards
+- Always provide types for function parameters and return values
+- Use interfaces for object types
+- Use type aliases for union types
+
+### React
+- Use functional components with hooks
+- Use TypeScript for props and state
+- Use React.memo for performance optimization when needed
+- Use proper error boundaries
+
+### Documentation
+- Use JSDoc comments for public APIs
+- Include parameter and return type descriptions
+- Document complex logic with inline comments
+- Example:
+  ```typescript
+  /**
+   * Formats a number with thousands separators
+   * @param num The number to format
+   * @param decimals Number of decimal places (default: 2)
+   * @returns Formatted number string
+   */
+  export const formatNumber = (num: number, decimals: number = 2): string => {
+    // ...
+  };
+  ```
+
+## Testing Conventions
+
+### Test Structure
+- Use descriptive test names
+- Group related tests in describe blocks
+- Use it/test for individual test cases
+- Example:
+  ```typescript
+  describe('Feature', () => {
+    it('should do something', () => {
+      // ...
+    });
+  });
+  ```
+
+### Mocking
+- Mock external dependencies
+- Use jest.mock for module mocks
+- Use jest.fn() for function mocks
+- Example:
+  ```typescript
+  jest.mock('../api', () => ({
+    fetchData: jest.fn(),
+  }));
+  ```
+
+## Git Conventions
+
+### Branch Naming
+- feature/ for new features
+- fix/ for bug fixes
+- chore/ for maintenance tasks
+- Example: `feature/auth-provider`
+
+### Commit Messages
+- Use present tense
+- Start with a verb
+- Be descriptive but concise
+- Example: `Add authentication provider component`
+
+## Environment Variables
+
+### Naming
+- Use VITE_ prefix for Vite environment variables
+- Use uppercase with underscores
+- Example: `VITE_API_URL`
+
+### Documentation
+- Document all required environment variables in README
+- Include default values where applicable
+- Example:
+  ```env
+  VITE_API_URL=http://localhost:3000
+  VITE_APP_ENV=development
+  ``` 

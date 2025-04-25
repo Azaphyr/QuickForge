@@ -23,3 +23,32 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Testing
+coverage
+*.lcov
+
+# TypeScript
+*.tsbuildinfo
+
+# Build files
+build
+dist
+.cache
+.temp
+
+# Vite
+.vite
+
+# Jest
+jest-cache
+jest-coverage
+
+# Misc
+.DS_Store
+Thumbs.db
