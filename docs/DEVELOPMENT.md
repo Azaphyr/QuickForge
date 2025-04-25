@@ -1,53 +1,208 @@
 # Development Guidelines
 
+## Prerequisites
+
+- Node.js (v18 or higher)
+- npm (latest stable version)
+- Git
+
 ## Getting Started
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Copy `.env.example` to `.env` and fill in the values
-4. Start the development server: `npm run dev`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Azaphyr/QuickForge.git
+   cd QuickForge
+   ```
 
-## Code Style
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-- Use TypeScript for all new code
-- Follow the feature-based architecture pattern
-- Write meaningful commit messages following conventional commits
-- Run `npm run format` before committing
-- Keep components small and focused
+3. Set up environment:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` with your configuration values
 
-## Testing
+4. Start development server:
+   ```bash
+   npm run dev
+   ```
 
-- Write tests for all new features
-- Run tests with `npm test`
-- Use React Testing Library for component tests
-- Follow the testing best practices in the project
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm test` - Run tests
+- `npm run test:watch` - Run tests in watch mode
+
+## Project Structure
+
+```
+src/
+├── Assets/            # Static assets
+├── Core/              # Core application modules
+├── Features/          # Feature modules
+├── Shared/           # Shared resources
+└── main.tsx         # Entry point
+```
+
+### Feature Module Structure
+
+Each feature should follow this structure:
+```
+FeatureName/
+├── Components/     # React components
+├── Hooks/         # Custom hooks
+├── Services/      # API services
+├── Types/         # TypeScript types
+└── index.ts       # Public API
+```
+
+## Code Style & Conventions
+
+### File Naming
+- Components: PascalCase (e.g., `UserProfile.tsx`)
+- Hooks: camelCase with 'use' prefix (e.g., `useAuth.ts`)
+- Services: PascalCase with 'Service' suffix (e.g., `AuthService.ts`)
+- Utils: PascalCase (e.g., `StringUtils.ts`)
+- Tests: Same name as tested file with `.test.ts(x)` suffix
+
+### TypeScript
+- Enable strict mode
+- Avoid `any` - use `unknown` with type guards instead
+- Use interfaces for object types
+- Use type aliases for unions/intersections
+- Document complex types
+
+### React
+- Use functional components
+- Implement proper error boundaries
+- Follow React hooks best practices
+- Maintain proper component composition
+- Use TypeScript for props and state
+
+### CSS/Styling
+- Use Tailwind CSS for styling
+- Follow mobile-first approach
+- Maintain consistent spacing
+- Use CSS variables for theming
+
+## Testing Guidelines
+
+### Unit Tests
+- Co-locate test files with source code
+- Follow AAA pattern (Arrange, Act, Assert)
+- Use meaningful test descriptions
+- Mock external dependencies
+- Test edge cases
+
+### Component Tests
+- Use React Testing Library
+- Test user interactions
+- Test accessibility
+- Avoid testing implementation details
+- Write integration tests for complex flows
 
 ## Git Workflow
 
-1. Create a new branch for each feature: `git checkout -b feature/your-feature`
-2. Make your changes
-3. Run tests and linting
-4. Commit your changes
-5. Push to remote
-6. Create a pull request
+1. Branch Naming:
+   - Features: `feature/feature-name`
+   - Fixes: `fix/issue-description`
+   - Chores: `chore/task-description`
 
-## Architecture
+2. Commit Messages:
+   ```
+   type(scope): description
 
-The project follows a feature-based architecture:
+   [optional body]
+   [optional footer]
+   ```
+   Types: feat, fix, docs, style, refactor, test, chore
 
-- `Core/`: Fundamental building blocks
-- `Features/`: Self-contained feature modules
-- `Shared/`: Reusable resources
+3. Pull Request Process:
+   - Create feature branch
+   - Make changes
+   - Run tests and linting
+   - Update documentation
+   - Create PR with description
+   - Request review
+   - Address feedback
+   - Merge when approved
 
 ## Environment Variables
 
-All environment variables are defined in `.env.example`. Make sure to:
-- Never commit `.env` file
-- Update `.env.example` when adding new variables
-- Document new variables in this file
+### Required Variables
+```env
+VITE_API_URL=           # API endpoint URL
+VITE_APP_ENV=           # development|production
+```
+
+### Optional Variables
+```env
+VITE_GOOGLE_CLIENT_ID=  # Google OAuth client ID
+VITE_LOG_LEVEL=         # debug|info|warn|error
+```
+
+## Performance Guidelines
+
+- Implement code splitting
+- Use React.memo for expensive renders
+- Optimize images and assets
+- Use proper caching strategies
+- Monitor bundle size
+- Implement lazy loading
+
+## Security Best Practices
+
+- Never commit sensitive data
+- Validate all inputs
+- Implement proper authentication
+- Use HTTPS
+- Keep dependencies updated
+- Follow OWASP guidelines
 
 ## Deployment
 
-1. Build the project: `npm run build`
-2. Deploy the contents of the `dist` directory
-3. Set up environment variables on the server 
+### Production Build
+1. Update environment variables
+2. Run build:
+   ```bash
+   npm run build
+   ```
+3. Test production build:
+   ```bash
+   npm run preview
+   ```
+
+### Deployment Checklist
+- [ ] Environment variables configured
+- [ ] Build successful
+- [ ] Tests passing
+- [ ] Performance metrics acceptable
+- [ ] Security headers configured
+- [ ] Error tracking setup
+- [ ] Backups configured
+- [ ] Monitoring in place
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. Build fails:
+   - Clear node_modules and package-lock.json
+   - Run fresh npm install
+   - Check for TypeScript errors
+
+2. Tests failing:
+   - Update test snapshots if needed
+   - Check for environment dependencies
+   - Verify mock data
+
+3. Development server issues:
+   - Clear Vite cache
+   - Check port conflicts
+   - Verify environment variables 
